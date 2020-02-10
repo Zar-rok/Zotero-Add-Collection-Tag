@@ -1,0 +1,2 @@
+content zotero_add_collection_tag chrome/content/
+overlay chrome://zotero/content/zoteroPane.xul chrome://zotero_add_collection_tag/content/overlay.xul
