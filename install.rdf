@@ -5,7 +5,7 @@
     xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <RDF:Description
         RDF:about="urn:mozilla:install-manifest"
-        em:id="https://github.com/Zar-rok"
+        em:id="zar-rok@live.fr"
         em:name="Zotero Add Collection Tag"
         em:version="1.0.0"
         em:type="2"
