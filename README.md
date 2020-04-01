@@ -20,6 +20,7 @@ To obtain the extension, you can follow one of the two approachs:
   - `chrome/`
   - `chrome.manifest`
   - `install.rdf`
+  
   For example: `7z a zotero_add_collection_tag.xpi chrome chrome.manifest install.rdf` using [7zip](https://www.7-zip.org/).
   You can also create a `.zip` an replace the extension by `.xpi` afterwards.
 
