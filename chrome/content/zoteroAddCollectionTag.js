@@ -39,7 +39,7 @@ Zotero.AddCollectionTag = {
       if (event == 'add' && type == 'item') {
         const items = Zotero.Items.get(ids);
         for (let i = 0; i < items.length; ++i) {
-          items[i].addTag(sel_col);
+          items[i].addTag(sel_col, 1);
           items[i].saveTx();
         }
       }
