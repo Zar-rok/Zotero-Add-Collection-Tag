@@ -7,7 +7,7 @@
         RDF:about="urn:mozilla:install-manifest"
         em:id="zar-rok@live.fr"
         em:name="Zotero Add Collection Tag"
-        em:version="1.0.0"
+        em:version="0.0.2"
         em:type="2"
         em:creator="Zar_Rok"
         em:description="Zotero plugin/addon to automatically include the collection's name as a tag of an added item"
