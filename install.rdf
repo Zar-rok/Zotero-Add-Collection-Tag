@@ -13,19 +13,13 @@
         em:description="Zotero plugin/addon to automatically include the collection's name as a tag of an added item"
         em:homepageURL="https://github.com/Zar-rok/Zotero-Add-Collection-Tag">
         <em:type>2</em:type>
+        <em:bootstrap>true</em:bootstrap>
         <em:targetApplication>
             <Description>
                 <em:id>zotero@chnm.gmu.edu</em:id>
                 <em:minVersion>5.0</em:minVersion>
                 <em:maxVersion>6.*</em:maxVersion>
             </Description>
-        </em:targetApplication>
-        <em:targetApplication>
-          <Description>
-            <em:id>juris-m@juris-m.github.io</em:id>
-            <em:minVersion>5.0</em:minVersion>
-            <em:maxVersion>5.*</em:maxVersion>
-          </Description>
         </em:targetApplication>
     </RDF:Description>
 </RDF:RDF>
