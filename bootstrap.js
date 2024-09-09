@@ -1,4 +1,4 @@
-if (typeof Zotero == 'undefined') {
+if (typeof Zotero == "undefined") {
 	var Zotero;
 	var window;
 }
@@ -10,13 +10,13 @@ if (typeof Zotero == 'undefined') {
 // In Zotero 7, bootstrap methods are not called until Zotero is initialized, and the 'Zotero' is
 // automatically made available.
 async function waitForZotero() {
-	if (typeof Zotero != 'undefined') {
+	if (typeof Zotero != "undefined") {
 		await Zotero.initializationPromise;
 		return;
 	}
-	
+
 	var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
-	var windows = Services.wm.getEnumerator('navigator:browser');
+	var windows = Services.wm.getEnumerator("navigator:browser");
 	var found = false;
 	while (windows.hasMoreElements()) {
 		let win = windows.getNext();
@@ -32,17 +32,22 @@ async function waitForZotero() {
 			var listener = {
 				onOpenWindow: function (aWindow) {
 					// Wait for the window to finish loading
-					let domWindow = aWindow.QueryInterface(Ci.nsIInterfaceRequestor)
+					let domWindow = aWindow
+						.QueryInterface(Ci.nsIInterfaceRequestor)
 						.getInterface(Ci.nsIDOMWindowInternal || Ci.nsIDOMWindow);
-					domWindow.addEventListener("load", function () {
-						domWindow.removeEventListener("load", arguments.callee, false);
-						if (domWindow.Zotero) {
-							Services.wm.removeListener(listener);
-							Zotero = domWindow.Zotero;
-							resolve();
-						}
-					}, false);
-				}
+					domWindow.addEventListener(
+						"load",
+						function () {
+							domWindow.removeEventListener("load", arguments.callee, false);
+							if (domWindow.Zotero) {
+								Services.wm.removeListener(listener);
+								Zotero = domWindow.Zotero;
+								resolve();
+							}
+						},
+						false,
+					);
+				},
 			};
 			Services.wm.addListener(listener);
 		});
@@ -65,28 +70,41 @@ async function install() {
 
 	Zotero.AddCollectionTag = {
 		init: function () {
-			const notifierID = Zotero.Notifier.registerObserver(this.notifierCallback, ['item', 'item-tag']);
-			window.addEventListener('unload', function(e) {
-				Zotero.Notifier.unregisterObserver(notifierID);
-			}, false);
+			const notifierID = Zotero.Notifier.registerObserver(
+				this.notifierCallback,
+				["item", "item-tag"],
+			);
+			window.addEventListener(
+				"unload",
+				function (e) {
+					Zotero.Notifier.unregisterObserver(notifierID);
+				},
+				false,
+			);
 		},
 
 		notifierCallback: {
-			notify: function(event, type, ids, extraData) {
-				const sel_col = Zotero.getActiveZoteroPane().getSelectedCollection().name;
-				if (event == 'add' && type == 'item') {
+			notify: function (event, type, ids, extraData) {
+				const sel_col =
+					Zotero.getActiveZoteroPane().getSelectedCollection().name;
+				if (event == "add" && type == "item") {
 					const items = Zotero.Items.get(ids);
 					for (let i = 0; i < items.length; ++i) {
 						items[i].addTag(sel_col, 1);
 						items[i].saveTx();
 					}
 				}
-			}
-		}
+			},
+		},
 	};
-	window.addEventListener('add', Zotero.AddCollectionTag.init(), false);
+	window.addEventListener("add", Zotero.AddCollectionTag.init(), false);
 }
 
-async function startup({ id, version, resourceURI, rootURI = resourceURI.spec }) {}
+async function startup({
+	id,
+	version,
+	resourceURI,
+	rootURI = resourceURI.spec,
+}) {}
 function shutdown() {}
 function uninstall() {}
