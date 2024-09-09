@@ -1,6 +1,13 @@
 <?xml version="1.0"?>
 <RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#" xmlns:NC="http://home.netscape.com/NC-rdf#" xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <RDF:Description RDF:about="urn:mozilla:install-manifest" em:id="zar-rok@live.fr" em:name="Zotero Add Collection Tag" em:version="0.0.2" em:type="2" em:creator="Zar_Rok" em:description="Zotero plugin/addon to automatically include the collection's name as a tag of an added item" em:homepageURL="https://github.com/Zar-rok/Zotero-Add-Collection-Tag">
+  <RDF:Description RDF:about="urn:mozilla:install-manifest">
+    <em:id>zar-rok@live.fr</em:id>
+    <em:name>Zotero Add Collection Tag</em:name>
+    <em:version>0.0.2</em:version>
+    <em:type>2</em:type>
+    <em:creator>Zar_Rok</em:creator>
+    <em:description>Zotero plugin/addon to automatically include the collection's name as a tag of an added item</em:description>
+    <em:homepageURL>https://github.com/Zar-rok/Zotero-Add-Collection-Tag</em:homepageURL>
     <em:type>2</em:type>
     <em:bootstrap>true</em:bootstrap>
     <em:targetApplication>
