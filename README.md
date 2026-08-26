@@ -1,3 +1,5 @@
+**WIP**: This plugin doesn't support recent Zotero versions. Check [#4](https://github.com/Zar-rok/Zotero-Add-Collection-Tag/issues/4#issuecomment-5427545351) for an alternative.
+
 # Zotero extension - Add Collection Tag
 
 When you add a new item to a collection with the Zotero Connector (i.e., the Web browser extension), this plugin will automatically tag the item and the related attachement with the name of the **currently selected** collection or sub-collection in Zotero.
